@@ -7,6 +7,8 @@ directory = 'Datasets\Task1\Images';
 fileList = dir(fullfile(directory, '*.jpg'));
 
 % Loop through the list and read each image
+images = cell(1, numel(fileList)); % Initialize cell array to store images
+
 for i = 1:numel(fileList)
     % Get the file name
     fileName = fullfile(directory, fileList(i).name);
@@ -14,12 +16,21 @@ for i = 1:numel(fileList)
     % Read the image
     image = imread(fileName);
     
-    % Process the image as needed
-    % ...
-    % Your code here
-    
-    % Display the image
-    imshow(image);
-    title(fileList(i).name);
-    pause(1); % Pause for 1 second before displaying the next image
+    % Store the image in the cell array
+
+    images{i} = image;
 end
+
+% Display the images like a filmstrip
+figure;
+montage(images, 'Size', [1, numel(fileList)]);
+title('Filmstrip of Images');
+
+% Grayscale all the images
+for i = 1:numel(images)
+    gray{i} = rgb2gray(images{i});
+end
+
+figure;
+montage(gray, 'Size', [1, numel(fileList)]);
+title('Filmstrip of GrayScale images');
