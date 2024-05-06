@@ -1,4 +1,4 @@
-abc=imread("Datasets\Task1\Images\img01.jpg");
+ abc=imread("Datasets\Task1\Images\img01.jpg");
 
 % Specify the directory path
 directory = 'Datasets\Task1\Images';
@@ -34,3 +34,20 @@ end
 figure;
 montage(gray, 'Size', [1, numel(fileList)]);
 title('Filmstrip of GrayScale images');
+
+% Create a figure with a slider
+figure;
+slider = uicontrol('Style', 'slider', 'Min', 1, 'Max', numel(images), 'Value', 1, ...
+    'Position', [20 20 360 20], 'Callback', @sliderCallback);
+
+% Display the first image
+imshow(images{1});
+
+% Slider callback function
+function sliderCallback(source, ~)
+    % Get the slider value
+    value = round(source.Value);
+    
+    % Display the corresponding image
+    imshow(images{value});
+end
