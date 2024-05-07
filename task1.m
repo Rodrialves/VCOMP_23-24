@@ -60,15 +60,15 @@ for i= 1:1
     subplot(2,3,6);imhist(stretched);
 
 
-    treated_1=imadjust(stretched,[130/255 160/255], [0 1],0.2);
-    treated_2=imadjust(stretched,[120/255 160/255], [0 1],1);
-    treated_3=imadjust(stretched,[120/255 160/255], [0 1],2);
-    treated_4=imadjust(pre_processing,[120/255 160/255], [0 1],0.2);
-    treated_5=imadjust(pre_processing,[120/255 160/255], [0 1],1);
-    treated_6=imadjust(pre_processing,[120/255 160/255], [0 1],2);
-    treated_7=imadjust(processing,[120/255 160/255], [0 1],0.2);
-    treated_8=imadjust(processing,[120/255 160/255], [0 1],1);
-    treated_9=imadjust(processing,[120/255 160/255], [0 1],2);
+    treated_1=imadjust(stretched,[120/255 150/255], [0 1],0.2);
+    treated_2=imadjust(stretched,[120/255 150/255], [0 1],1);
+    treated_3=imadjust(stretched,[120/255 150/255], [0 1],2);
+    treated_4=imadjust(pre_processing,[120/255 150/255], [0 1],0.2);
+    treated_5=imadjust(pre_processing,[120/255 150/255], [0 1],1);
+    treated_6=imadjust(pre_processing,[120/255 150/255], [0 1],2);
+    treated_7=imadjust(processing,[120/255 150/255], [0 1],0.2);
+    treated_8=imadjust(processing,[120/255 150/255], [0 1],1);
+    treated_9=imadjust(processing,[120/255 150/255], [0 1],2);
 
 
 
@@ -83,7 +83,7 @@ for i= 1:1
     subplot(3,3,1);imshow(treated_4);title('Gamma=0.2');
     subplot(3,3,4);imshow(treated_5);title('Gamma=1');
     subplot(3,3,7);imshow(treated_6);title('Gamma=2');
-    
-
 end
 
+
+%% 
