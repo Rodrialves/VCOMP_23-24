@@ -80,7 +80,7 @@ end
 
 %% Chatgpt
 
-% Loop through each image
+
 for i = 1:5
     
 end
