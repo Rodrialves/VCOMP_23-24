@@ -31,4 +31,7 @@ Finally, we used the [images](Results/Task1/Images_BB)  obtained in the segmenta
 | F1-Measure | 0.4052 |
 
 
+#### Warning
+One need to make sure that all directories in the scripts exists.
+
 [M.EEC034]: https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=516516
