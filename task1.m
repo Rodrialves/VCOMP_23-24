@@ -55,11 +55,13 @@ for j=1:numel(fileList)
 
     Img_applied_BB=applyBB(images{j},Img_bb);
     
-    figure();
-    subplot(2,2,1);imshow(images{j});title('Original Image');
-    subplot(2,2,2);imshow(Img_no_arm);title('Image without Arm');
-    subplot(2,2,3);imshow(Img_bb);title('Bounding Box');
-    subplot(2,2,4);imshow(Img_applied_BB);title('Bounding Box');
+    if(enable==1)
+        figure();
+        subplot(2,2,1);imshow(images{j});title('Original Image');
+        subplot(2,2,2);imshow(Img_no_arm);title('');
+        subplot(2,2,3);imshow(Img);title('Image without Arm');
+        subplot(2,2,4);imshow(Img_applied_BB);title('Bounding Box');
+    end
 
     %store the images
     if(j<10)
