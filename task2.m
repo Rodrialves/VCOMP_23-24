@@ -279,7 +279,34 @@ confChart.Title = 'Confusion Matrix';
 confChart.RowSummary = 'row-normalized';
 confChart.ColumnSummary = 'column-normalized';
 
+% Number of classes
+numClasses = size(confMat, 1);
 
+% Initialize arrays for precision, recall, and F1 score
+precision = zeros(numClasses, 1);
+recall = zeros(numClasses, 1);
+f1Score = zeros(numClasses, 1);
+
+for i = 1:numClasses
+    TP = confMat(i,i);
+    FP = sum(confMat(:,i)) - TP;
+    FN = sum(confMat(i,:)) - TP;
+    
+    precision(i) = TP / (TP + FP);
+    recall(i) = TP / (TP + FN);
+    f1Score(i) = 2 * (precision(i) * recall(i)) / (precision(i) + recall(i));
+end
+
+% Macro-Averaging
+macroPrecision = mean(precision);
+macroRecall = mean(recall);
+macroF1 = mean(f1Score);
+
+
+% Display metrics
+fprintf('Precision: %.2f %%\n', macroPrecision*100);
+fprintf('Recall: %.2f %%\n', macroRecall*100);
+fprintf('F1 Score: %.2f %%\n', macroF1*100);
 
 function output=preProcessing(img,h,w) %% preprocessing function from task1
 
