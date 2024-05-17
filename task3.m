@@ -41,7 +41,6 @@ for i = 1:length(letters_array)
     end
 end
 
-
 expression = '(\d+)';
 % Loop to extract numbers from each strings
 for i = 1:length(vectorA)
@@ -133,11 +132,9 @@ for i =1:numel(fileList)
 end
 
 for i = 1:length(images)
-%i=9;
-%imshow(images{i});
+
 total = [0, 0, 0, 0, 0, 0, 0];
 correlation = [0, 0, 0, 0, 0, 0, 0];
-disp(i);
 for j = 1:length(vecA)
     indice = vecA(j);
     if ~(i == indice{1})
@@ -145,12 +142,10 @@ for j = 1:length(vecA)
               [maxCorrA, maxIndexA] = max(abs(correlationA(:)));
             correlation(1) =  correlation(1) + maxCorrA;  %% cumulative
             total(1) = total(1) + 1; 
-
     end
 end
 % Calculate medium correlation
 correlation(1) = correlation(1) / total(1);
-disp(correlation(1)); %A
 
 for j = 1:length(vecB)
     indice = vecB(j);
@@ -159,11 +154,9 @@ for j = 1:length(vecB)
               [maxCorrB, maxIndexB] = max(abs(correlationB(:)));
             correlation(2) =  correlation(2) + maxCorrB;
             total(2) = total(2) + 1; 
-
     end
 end
 correlation(2) = correlation(2) / total(2);
-disp(correlation(2)); %B
 
 for j = 1:length(vecC)
     indice = vecC(j);
@@ -172,11 +165,9 @@ for j = 1:length(vecC)
               [maxCorrC, maxIndexC] = max(abs(correlationC(:)));
             correlation(3) =  correlation(3) + maxCorrC;
             total(3) = total(3) + 1;
-
     end
 end
 correlation(3) = correlation(3) / total(3);
-disp(correlation(3)); %C
 
 for j = 1:length(vecI)
     indice = vecI(j);
@@ -189,7 +180,6 @@ for j = 1:length(vecI)
     end
 end
 correlation(4) = correlation(4) / total(4);
-disp(correlation(4)); %I
 
 for j = 1:length(vecL)
     indice = vecL(j);
@@ -201,7 +191,6 @@ for j = 1:length(vecL)
     end
 end
 correlation(5) = correlation(5) / total(5);
-disp(correlation(5)); %L
 
 for j = 1:length(vecV)
     indice = vecV(j);
@@ -210,11 +199,9 @@ for j = 1:length(vecV)
               [maxCorrV, maxIndexV] = max(abs(correlationV(:)));
             correlation(6) =  correlation(6) + maxCorrV;
             total(6) = total(6) + 1;  
-
     end
 end
 correlation(6) = correlation(6) / total(6);
-disp(correlation(6)); %V
 
 for j = 1:length(vecW)
     indice = vecW(j);
@@ -223,11 +210,9 @@ for j = 1:length(vecW)
               [maxCorrW, maxIndexW] = max(abs(correlationW(:)));
             correlation(7) =  correlation(7) + maxCorrW;
             total(7) = total(7) + 1;  
-
     end
 end
 correlation(7) = correlation(7) / total(7);
-disp(correlation(7)); %W
 
 [maxValue, maxPosition] = max(correlation); %% See which correlation is greater
 if maxPosition == 1
@@ -245,18 +230,14 @@ elseif maxPosition == 6
 elseif maxPosition == 7
     result{i} = 'W';
 end
-disp(result{i});
 end
 
     is_right = 0;
 for i= 1:length(result)
     if isequal(result{i}, letters_array{i})
         is_right = is_right + 1;
-    else
-        fprintf("Wrong Classification!! img %d. obtained = %s and should be = %s\n", i, result{i}, letters_array{i});
     end
 end
-disp(is_right);
 
 % Show filmstrip of all images
 figure;
