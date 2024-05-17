@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: "Diogo
+- family-names: "Diogo"
   given-names: "Ferreira"
 - family-names: "Gonçalo"
   given-names: "Pereira"
