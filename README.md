@@ -1,6 +1,6 @@
 # VCOMP_23-24
 
-|  Task 1    |
+|  Task 1    ||
 | ---------- |
 | Recall     | 1 |
 | Precision  | 0.7105 |
