@@ -38,9 +38,7 @@ for i = 1:numel(fileList)
     % Read and resize the image
     image = imresize(imread(fileName),[h w]);
     
-
     % Store the image in the cell array
-    
     images{i} = image;
 
 end
@@ -56,7 +54,6 @@ for j=1:numel(fileList)
     Img_applied_BB=applyBB(images{j},Img_bb);
     
     if(enable==1)
-        fprintf("Entrei onde não devia");
         figure();
         subplot(2,2,1);imshow(images{j});title('Original Image');
         subplot(2,2,2);imshow(Img_no_arm);title('Image without Arm');
@@ -76,8 +73,6 @@ for j=1:numel(fileList)
 end
 
  applyJaccard(directory_gt,folderpath_masks,h,w);
-
-
 
 %% Functions that will be used
 
@@ -99,8 +94,6 @@ function output=preProcessing(img,h,w)
     for i=1:numind
         img_S_e(r(i),c(i)) = 1;
     end
-    
-    figure;
 
     [L,~]=bwlabel(img_S_e);
 
@@ -112,7 +105,6 @@ function output=preProcessing(img,h,w)
     else
         idx_to_keep = [s.Area] >= 2000;
     end
-
     
     skin_px = zeros(h, w);
     for i = 1:size(idx_to_keep,2)
@@ -124,7 +116,6 @@ function output=preProcessing(img,h,w)
             end
         end
     end
-
 
     output=skin_px;
 end
@@ -216,7 +207,6 @@ function output=createBB(inputImage,h,w)
         end
     end
     
-    
     bb=s(i_max).BoundingBox;
 
     % Create BB image
@@ -224,7 +214,6 @@ function output=createBB(inputImage,h,w)
     beg_col = ceil(bb(1)); end_col = beg_col + bb(3) - 1;
     %find the first and last row
     beg_row = ceil(bb(2)); end_row = beg_row + bb(4) - 1;
-    
 
     bb_img = zeros(h, w);
     for i = beg_row:end_row

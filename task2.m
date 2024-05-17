@@ -76,7 +76,6 @@ for i = 1:length(vectorW)
     vecW{i} = str2double(found_numbers{1}{1});
 end
 
-
 % Directory path
 directory = 'Datasets\Task2\Images_with_BBs';
 
@@ -155,7 +154,6 @@ for j = 1:length(vecB)
               [maxCorrB, maxIndexB] = max(abs(correlationB(:)));
             correlation(2) =  correlation(2) + maxCorrB;
             total(2) = total(2) + 1; 
-
     end
 end
 correlation(2) = correlation(2) / total(2);
@@ -167,7 +165,6 @@ for j = 1:length(vecC)
               [maxCorrC, maxIndexC] = max(abs(correlationC(:)));
             correlation(3) =  correlation(3) + maxCorrC;
             total(3) = total(3) + 1;
-
     end
 end
 correlation(3) = correlation(3) / total(3);
@@ -179,7 +176,6 @@ for j = 1:length(vecI)
               [maxCorrI, maxIndexI] = max(abs(correlationI(:)));
             correlation(4) =  correlation(4) + maxCorrI;
             total(4) = total(4) + 1;  
-
     end
 end
 correlation(4) = correlation(4) / total(4);
@@ -284,12 +280,12 @@ end
 % Macro-Averaging
 macroPrecision = mean(precision);
 macroRecall = mean(recall);
-macroF1 = mean(f1Score);
+macroF1 = 2*macroPrecision*macroRecall/(macroRecall+macroPrecision);
 
 % Display metrics
-fprintf('Precision: %.2f %%\n', macroPrecision*100);
-fprintf('Recall: %.2f %%\n', macroRecall*100);
-fprintf('F1 Score: %.2f %%\n', macroF1*100);
+fprintf('Precision: %.4f\n', macroPrecision);
+fprintf('Recall: %.4f\n', macroRecall);
+fprintf('F1 Score: %.4f\n', macroF1);
 
 function output=preProcessing(img,h,w) %% preprocessing function from task1
 
@@ -330,7 +326,6 @@ function output=preProcessing(img,h,w) %% preprocessing function from task1
             end
         end
     end
-
     output=skin_px;
 end
 

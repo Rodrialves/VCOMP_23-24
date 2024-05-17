@@ -281,13 +281,13 @@ end
 % Macro-Averaging
 macroPrecision = mean(precision);
 macroRecall = mean(recall);
-macroF1 = mean(f1Score);
+macroF1 = 2*macroPrecision*macroRecall/(macroRecall+macroPrecision);
 
 
 % Display metrics
-fprintf('Precision: %.2f %%\n', macroPrecision*100);
-fprintf('Recall: %.2f %%\n', macroRecall*100);
-fprintf('F1 Score: %.2f %%\n', macroF1*100);
+fprintf('Precision: %.4f \n', macroPrecision);
+fprintf('Recall: %.4f \n', macroRecall);
+fprintf('F1 Score: %.4f \n', macroF1);
 
 function output=preProcessing(img,h,w) %% preprocessing function from task1
 
@@ -318,7 +318,6 @@ function output=preProcessing(img,h,w) %% preprocessing function from task1
         idx_to_keep = [s.Area] >= 2000;
     end
 
-
     skin_px = zeros(h, w);
     for i = 1:size(idx_to_keep,2)
         if(idx_to_keep(i)==1)
@@ -329,7 +328,6 @@ function output=preProcessing(img,h,w) %% preprocessing function from task1
             end
         end
     end
-
     output=skin_px;
 end
 
