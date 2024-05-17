@@ -22,7 +22,7 @@ Then we needed to identify a subset of letters of the American sign language usi
 
 ### Task 3
 
-Finally, we used the [images](Datasets/Task1/Results)  obtained in the segmentation of Task 1 as the input dataset for the script developed in Task 2, [task3.m](task3.m). The result was as follows:
+Finally, we used the [images](Results/Task1/Images_BB)  obtained in the segmentation of Task 1 as the input dataset for the script developed in Task 2, [task3.m](task3.m). The result was as follows:
 
 |  Task 3    | Values |
 | ---------- | ------|
