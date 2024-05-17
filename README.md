@@ -3,7 +3,7 @@
 All the work carried out on this repository was done as part of the final project for FEUP's Computer Vision course ([M.EEC034]).
 
 ### Task 1
-The aim of this work was to detect the hand in the [images](Datasets\Task1\Images\) and create a Bounding Box around it by segmenting it and comparing it with the ground truth provided in the [Dataset](Datasets\Task1\Hand_masks). This was done in ([task1.m](task1.m)) and the result was the following:
+The aim of this work was to detect the hand in the [images](Datasets\Task1\Images\ ) and create a Bounding Box around it by segmenting it and comparing it with the ground truth provided in the [Dataset](Datasets\Task1\Hand_masks). This was done in ([task1.m](task1.m)) and the result was the following:
 
 |  Task 1    | Values |
 | ---------- | ------|
