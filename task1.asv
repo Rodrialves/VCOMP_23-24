@@ -64,11 +64,10 @@ for j=1:numel(fileList)
     %store the images
     if(j<10)
         imwrite(Img_bb, strcat(folderpath_masks,'0', int2str(j), '_bb.png'));
-        imwrite(Img_applied_BB, strcat(folderpath_Img_bb,'0', int2str(j), '_bb.tif'));
-
+        
     else
         imwrite(Img_bb, strcat(folderpath_masks, int2str(j), '_bb.png'));
-        imwrite(Img_applied_BB, strcat(folderpath_Img_bb, int2str(j), '_bb.tif'));
+        imwrite(Img_bb, strcat(folderpath_masks, int2str(j), '_bb.png'));
     end
 end
 
