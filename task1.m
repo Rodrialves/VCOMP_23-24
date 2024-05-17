@@ -56,11 +56,12 @@ for j=1:numel(fileList)
     Img_applied_BB=applyBB(images{j},Img_bb);
     
     if(enable==1)
+        fprintf("Entrei onde não devia");
         figure();
         subplot(2,2,1);imshow(images{j});title('Original Image');
-        subplot(2,2,2);imshow(Img_no_arm);title('');
-        subplot(2,2,3);imshow(Img);title('Image without Arm');
-        subplot(2,2,4);imshow(Img_applied_BB);title('Bounding Box');
+        subplot(2,2,2);imshow(Img_no_arm);title('Image without Arm');
+        subplot(2,2,3);imshow(Img_bb);title('Bounding Box');
+        subplot(2,2,4);imshow(Img_applied_BB);title('Bounding Box Applied');
     end
 
     %store the images
@@ -90,7 +91,7 @@ function output=preProcessing(img,h,w)
     HSV=rgb2hsv(img);
     H=HSV(:,:,1);
 
-    [r,c,~]=find(Cr >= 140 & Cr <= 160 & Cb >= 95 & Cb <= 170 & H<0.1);
+    [r,c,~]=find(Cr >= 140 & Cr <= 160 & Cb >= 95 & Cb <= 170 & H<0.9);
 
     img_S_e = zeros(h, w);
     numind = size(r);
@@ -98,6 +99,8 @@ function output=preProcessing(img,h,w)
     for i=1:numind
         img_S_e(r(i),c(i)) = 1;
     end
+    
+    figure;
 
     [L,~]=bwlabel(img_S_e);
 
