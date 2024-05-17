@@ -78,7 +78,6 @@ end
 
 
 
-
 %% Functions that will be used
 
 function output=preProcessing(img,h,w)
@@ -89,8 +88,9 @@ function output=preProcessing(img,h,w)
     Cr=YCbCr(:,:,3); 
     %HSV
     HSV=rgb2hsv(img);
+    H=HSV(:,:,1);
 
-    [r,c,~]=find(Cr >= 140 & Cr <= 160 & Cb >= 95 & Cb <= 170 & HSV(:,:,1)<0.9);
+    [r,c,~]=find(Cr >= 140 & Cr <= 160 & Cb >= 95 & Cb <= 170 & H<0.1);
 
     img_S_e = zeros(h, w);
     numind = size(r);
