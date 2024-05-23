@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: "Diogo"
-  given-names: "Ferreira"
-- family-names: "Gonçalo"
-  given-names: "Pereira"
-- family-names: "Rodrigo"
-  given-names: "Alves"
+- family-names: "Ferreira"
+  given-names: "Diogo"
+- family-names: "Pereira"
+  given-names: "Gonçalo"
+- family-names: "Alves"
+  given-names: "Rodrigo"
 title: "VCOMP_23-24"
 date-released: 2024-05-17
 url: "https://github.com/Rodrialves/VCOMP_23-24"
